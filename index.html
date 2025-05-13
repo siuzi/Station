@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linktree Putih + Menu Tentang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+      color: #333;
+      padding: 15px;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .header-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #eee;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1001;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    .sidebar .tentang-teks,
+    .kontak-links {
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .tentang-teks,
+    .kontak-links {
+      visibility: hidden;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .tentang-teks.show,
+    .kontak-links.show {
+      visibility: visible;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .kontak-links a {
+      color: #333;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      margin: 8px 0;
+    }
+
+    .kontak-links a:hover {
+      color: #0073e6;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .main {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .profile-img {
+      width: 320px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    .links {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-button {
+      background: #444;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background 0.3s ease;
+    }
+
+    .link-button:hover {
+      background: #555;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .image-gallery img {
+      width: auto;
+      height: auto;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+
+    .sidebar .social-links a {
+      font-size: 24px;
+      padding: 12px 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+    }
+
+    .sidebar .social-links a:hover {
+      background-color: #ddd;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
+    <span class="header-title">Statio n.</span>
+  </div>
+
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <div id="sidebar" class="sidebar">
+    <a onclick="toggleTentang()">Tentang <span>&#9662;</span></a>
+    <div id="tentangContent" class="tentang-teks">
+      <p>Dalam bahasa Inggris, <strong>station</strong> berarti stasiun — yang mana merupakan titik kumpul antara layanan transportasi dan penumpang.</p>
+      <p>Sebagaimana stasiun, <strong>Station (Smandatu's Aspiration)</strong> diharapkan dapat menjadi titik kumpul bagi suara-suara warga SMAN 2 Tualang yang akan MPK suarakan.</p>
+      <p><em>Smandatu's Aspiration</em></p>
+    </div>
+    <a onclick="toggleKontak()">Kontak <span>&#9662;</span></a>
+    <div id="kontakLinks" class="kontak-links">
+      <a href="https://wa.me/6288742654175" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/mpk_smandatu" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <img src="https://i.postimg.cc/kG5z9Wkq/1747123368022.png" alt="Foto Profil" class="profile-img" />
+    <h1>MAJELIS PERWAKILAN KELAS</h1>
+
+    <div class="links">
+      <a href="https://forms.gle/MBpRQwc6juV3o6kVA" class="link-button" target="_blank">Kritik dan Saran untuk OSIS</a>
+      <a href="https://forms.gle/TYHvcD3NZWqVk5Tm9" class="link-button" target="_blank">Kritik dan Saran Terhadap Sarana dan Prasarana sekolah</a>
+      <a href="https://forms.gle/NA3XAbjMUTCLwBYo7" class="link-button" target="_blank">Kritik dan Saran untuk Organisasi dan Ekstrakurikuler</a>
+      <a href="https://forms.gle/3xEWxBaCfSDzREmK8" class="link-button" target="_blank">Laporkan Pelecehan, Kekerasan, Pelanggaran</a>
+      <a href="https://ngl.link/mpk_smandatu1" class="link-button" target="_blank">MPK Menfess</a>
+      <a href="https://youtu.be/dQw4w9WgXcQ?si=sQjfbQBgfUMDaUNM" class="link-button" target="_blank">Warga sekolah (Coming Soon)</a>
+    </div>
+
+    <div class="image-gallery">
+      <img src="https://i.postimg.cc/8Pjj59Gg/7f666c79-9c1e-4189-9ce0-218879448365-825x345-webp.webp" alt="Gambar 1">
+      <img src="https://i.postimg.cc/Wb7dy0hp/httpsstations-my-id-20250513-193007-0000.png" alt="Gambar 2">
+      <img src="https://i.postimg.cc/hvGhV37x/8f07c415-281f-4108-b622-54647c967f11-5000x1500-webp.webp" alt="Gambar 3">
+    </div>
+  </div>
+
+  <div class="footer">
+    dibuat oleh @zahrahan.kiyoshi :v
+  </div>
+
+  <script>
+    function openSidebar() {
+      document.getElementById("sidebar").style.left = "0";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closeSidebar() {
+      document.getElementById("sidebar").style.left = "-250px";
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("tentangContent").classList.remove("show");
+      document.getElementById("kontakLinks").classList.remove("show");
+    }
+
+    function toggleTentang() {
+      document.getElementById("tentangContent").classList.toggle("show");
+    }
+
+    function toggleKontak() {
+      document.getElementById("kontakLinks").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
