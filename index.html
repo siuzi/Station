@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statio n.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
+    <span class="header-title">Statio n.</span>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a onclick="toggleTentang()">Tentang <span id="tentangArrow">&#9662;</span></a>
+    <div id="tentangContent" class="tentang-teks">
+      <p>Dalam bahasa Inggris, <strong>station</strong> berarti stasiun — titik kumpul antara layanan transportasi dan penumpang.</p>
+      <p>Sebagaimana stasiun, <strong>Station (Smandatu's Aspiration)</strong> diharapkan menjadi titik kumpul suara warga SMAN 2 Tualang yang akan MPK suarakan.</p>
+      <p><em>Smandatu's Aspiration</em></p>
+    </div>
+
+    <a onclick="toggleKontak()">Kontak <span id="kontakArrow">&#9662;</span></a>
+    <div id="kontakLinks" class="kontak-links">
+      <a href="https://wa.me/6288742654175" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/mpk_smandatu" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- Konten Utama -->
+  <div class="main">
+    <img src="images/profile.png" alt="Foto Profil" class="profile-img" />
+    <h1>MAJELIS PERWAKILAN KELAS</h1>
+
+    <div class="links">
+      <a href="https://forms.gle/MBpRQwc6juV3o6kVA" class="link-button" target="_blank">Kritik dan Saran untuk OSIS</a>
+      <a href="https://forms.gle/TYHvcD3NZWqVk5Tm9" class="link-button" target="_blank">Kritik dan Saran untuk Sarana dan Prasarana</a>
+      <a href="https://forms.gle/NA3XAbjMUTCLwBYo7" class="link-button" target="_blank">Kritik dan Saran untuk Organisasi</a>
+      <a href="https://forms.gle/3xEWxBaCfSDzREmK8" class="link-button" target="_blank">Laporkan Kekerasan & Pelanggaran</a>
+      <a href="https://ngl.link/mpk_smandatu1" class="link-button" target="_blank">MPK Menfess</a>
+      <a href="https://youtu.be/dQw4w9WgXcQ" class="link-button" target="_blank">Warga Sekolah (Coming Soon)</a>
+    </div>
+    <div class="iklan">
+ <h3>pasang pengumuman/iklan kamu</h3>
+   <h5>silahkan dm ig @mpk_smandatu</h5>
+    </div>
+    <div class="image-gallery">
+      <img src="images/print.png" alt="Gambar 1">
+      <img src="images/pengumuman.webp" alt="Gambar 2">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer" style="text-align: center;">
+    dibuat oleh @zahrahan.kiyoshi
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
